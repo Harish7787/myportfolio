@@ -83,7 +83,7 @@ const App = () => {
                 <Command size={14} />
               </div>
               <span className="font-bold text-sm uppercase tracking-[0.3em] dark:text-white">
-                HS<span className="text-blue-600">Architecting</span>
+                HS<span className="text-blue-600">Portfolio</span>
               </span>
             </div>
             
@@ -273,7 +273,7 @@ const App = () => {
                  </div>
                  <div>
                    <p className="text-[9px] font-black uppercase tracking-widest text-blue-600 mb-0.5">Education</p>
-                   <h4 className="text-lg font-black uppercase tracking-tighter leading-tight">BCA (2020 — 2023)</h4>
+                   <h4 className="text-lg font-black uppercase tracking-tighter leading-tight">BCA (2023 — 2026)</h4>
                    <p className="text-xs sm:text-sm text-slate-500 mt-1 font-bold italic">Dr Virambhai Rajabhai Godhaniya IT College</p>
                  </div>
                </div>
@@ -288,11 +288,11 @@ const App = () => {
                <div className="space-y-4 relative z-10">
                   <div className="flex items-start gap-3">
                      <Star size={14} className="text-yellow-500 shrink-0 mt-1" />
-                     <p className="text-sm font-bold uppercase tracking-tight italic opacity-90 leading-tight">College Topper & Top Achiever</p>
+                     <p className="text-sm font-bold uppercase tracking-tight italic opacity-90 leading-tight">ACADEMIC EXCELLENCE RECIPIENT</p>
                   </div>
                   <div className="flex items-start gap-3">
                      <Star size={14} className="text-yellow-500 shrink-0 mt-1" />
-                     <p className="text-sm font-bold uppercase tracking-tight italic opacity-90 leading-tight">Academic Performance Scholarship Recipient</p>
+                     <p className="text-sm font-bold uppercase tracking-tight italic opacity-90 leading-tight">EXCELLENCE IN STUDIES</p>
                   </div>
                </div>
             </div>
@@ -304,8 +304,8 @@ const App = () => {
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 text-center md:text-left">
               <div className="space-y-3">
-                <h2 className="text-xs font-black uppercase tracking-[0.5em] text-blue-600">Portfolio</h2>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter uppercase leading-tight">Key Projects</h3>
+                <h2 className="text-xs font-black uppercase tracking-[0.5em] text-blue-600">Key</h2>
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter uppercase leading-tight"> Projects</h3>
               </div>
               <p className="text-slate-400 font-bold italic text-sm">Committed to architecting high-performance digital environments.</p>
             </div>
@@ -359,7 +359,7 @@ const App = () => {
              <div className="flex justify-center mb-16">
                 <div className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-slate-50 dark:bg-black border border-slate-200 dark:border-white/10 shadow-sm">
                    <Globe size={18} className="text-blue-600" />
-                   <span className="text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 italic uppercase">Vadodara, Gujarat, IN</span>
+                   <span className="text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 italic uppercase">Harish Solanki</span>
                 </div>
              </div>
              
@@ -370,7 +370,7 @@ const App = () => {
                </div>
                <div className="space-y-2">
                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4">Email Address</label>
-                 <input type="email" placeholder="hs3417145@gmail.com" className="w-full p-5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-white/5 rounded-2xl outline-none focus:border-blue-600 font-bold transition-all text-sm" />
+                 <input type="email" placeholder="abc@gmail.com" className="w-full p-5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-white/5 rounded-2xl outline-none focus:border-blue-600 font-bold transition-all text-sm" />
                </div>
                <div className="md:col-span-2 space-y-2">
                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4">Technical Objective</label>
@@ -406,7 +406,7 @@ const App = () => {
             </div>
             
             <div className="md:text-right">
-               <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-300 dark:text-white/20">© 2024 VADODARA, GUJARAT, INDIA</p>
+               <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-300 dark:text-white/20">© 2026 GUJARAT, INDIA</p>
                <p className="text-[8px] font-bold text-blue-600 uppercase tracking-widest mt-1 italic">Built for Scalability & Performance</p>
             </div>
           </div>
