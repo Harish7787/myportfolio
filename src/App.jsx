@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 import myImage from "./assets/myimg.jpg";
 import { 
   Sun, Moon, Github, Linkedin, Mail, ExternalLink, 
@@ -9,7 +11,52 @@ import {
   Command, Cpu as Processor, Activity, Workflow, Award, Star,
   MapPin, Phone, Heart, ArrowDown, BarChart3, Terminal, Layout, Shield
 } from 'lucide-react';
+const sendEmail = (e) => {
+  e.preventDefault();
 
+  const form = e.target;
+
+  const name = form.name.value;
+  const email = form.email.value;
+  const message = form.message.value;
+
+  // ✅ Validation
+  if (!name || !email || !message) {
+    alert("All fields are required ❌");
+    return;
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    alert("Enter valid email ❌");
+    return;
+  }
+
+  emailjs.sendForm(
+    "service_k4puwvi",
+    "template_t644uyh",
+    form,
+    "Ju7VDWYPupcO2C9Zu"
+  )
+  .then(() => {
+    //alert("Message Sent Successfully ✅");
+     Swal.fire({
+          title: "Success!",
+          text: "Message Sent Successfully! I'll get back to you soon.",
+          icon: "success",
+          confirmButtonText: "Great!"
+        });
+    form.reset(); // clear fields
+  })
+  .catch((error) => {
+   // console.log(error);
+   Swal.fire({
+          title: "Error!",
+          text: "Failed to send message. Please try again later.",
+          icon: "error"
+        });
+  });
+};
 const App = () => {
   const [theme, setTheme] = useState('light');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -392,12 +439,60 @@ const App = () => {
           <div className="relative bg-white dark:bg-zinc-900 p-8 sm:p-20 rounded-[4rem] border border-slate-100 dark:border-white/5 shadow-2xl text-center overflow-hidden">
              <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] animate-pulse"></div>
              <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter mb-8 italic text-center dark:text-white uppercase leading-none">Initialize <span className="text-blue-600">Contact</span></h2>
-             <form className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left relative z-10" onSubmit={e => e.preventDefault()}>
-               <div className="space-y-2"><label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4 uppercase">Full Identity</label><input type="text" placeholder="Your Name" className="w-full p-5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-white/5 rounded-2xl outline-none focus:border-blue-600 font-bold transition-all text-sm shadow-inner" /></div>
-               <div className="space-y-2"><label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4 uppercase">Email Address</label><input type="email" placeholder="hs3417145@gmail.com" className="w-full p-5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-white/5 rounded-2xl outline-none focus:border-blue-600 font-bold transition-all text-sm shadow-inner" /></div>
-               <div className="md:col-span-2 space-y-2 text-left"><label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4 uppercase">Technical Objective</label><textarea rows="4" placeholder="Tell me about your architectural goals..." className="w-full p-5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-white/5 rounded-2xl outline-none focus:border-blue-600 font-bold resize-none transition-all text-sm shadow-inner placeholder:opacity-30" /></div>
-               <div className="md:col-span-2 flex justify-center pt-8"><button className="w-full max-w-lg py-5 bg-blue-600 text-white rounded-2xl font-black uppercase tracking-[0.4em] text-[11px] shadow-2xl hover:bg-blue-700 transition-all flex items-center justify-center gap-4 group"><span className="relative z-10 flex items-center gap-2 uppercase">Establish Connection <Send size={18} className="group-hover:translate-x-1.5 group-hover:-translate-y-1.5 transition-transform" /></span></button></div>
-             </form>
+            <form 
+  className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left relative z-10" 
+  onSubmit={sendEmail}
+>
+
+  <div className="space-y-2">
+    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4 uppercase">
+      Full Identity
+    </label>
+    <input 
+      type="text"
+      name="name"   // ✅ ADD THIS
+      placeholder="Your Name" 
+      className="w-full p-5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-white/5 rounded-2xl outline-none focus:border-blue-600 font-bold transition-all text-sm shadow-inner"
+    />
+  </div>
+
+  <div className="space-y-2">
+    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4 uppercase">
+      Email Address
+    </label>
+    <input 
+      type="email"
+      name="email"   // ✅ ADD THIS
+      placeholder="abc123@gmail.com" 
+      className="w-full p-5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-white/5 rounded-2xl outline-none focus:border-blue-600 font-bold transition-all text-sm shadow-inner"
+    />
+  </div>
+
+  <div className="md:col-span-2 space-y-2 text-left">
+    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4 uppercase">
+      Technical Objective
+    </label>
+    <textarea 
+      rows="4"
+      name="message"   // ✅ ADD THIS
+      placeholder="Tell me about your architectural goals..." 
+      className="w-full p-5 bg-slate-50 dark:bg-black border border-slate-200 dark:border-white/5 rounded-2xl outline-none focus:border-blue-600 font-bold resize-none transition-all text-sm shadow-inner placeholder:opacity-30"
+    />
+  </div>
+
+  <div className="md:col-span-2 flex justify-center pt-8">
+    <button 
+      type="submit"   // ✅ ADD THIS (important)
+      className="w-full max-w-lg py-5 bg-blue-600 text-white rounded-2xl font-black uppercase tracking-[0.4em] text-[11px] shadow-2xl hover:bg-blue-700 transition-all flex items-center justify-center gap-4 group"
+    >
+      <span className="relative z-10 flex items-center gap-2 uppercase">
+        Establish Connection 
+        <Send size={18} className="group-hover:translate-x-1.5 group-hover:-translate-y-1.5 transition-transform" />
+      </span>
+    </button>
+  </div>
+
+</form>
           </div>
         </section>
 
