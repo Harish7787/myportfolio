@@ -268,25 +268,34 @@ const App = () => {
             </div>
 
             {/* Right: Image Container */}
-            <div className="flex-1 flex justify-center md:justify-end order-1 md:order-2">
-              <div className="relative group w-full max-w-[320px] lg:max-w-[400px]">
-                <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-cyan-500 rounded-[3rem] blur-2xl opacity-10 group-hover:opacity-30 transition duration-1000"></div>
-                <div className="relative aspect-[4/5] bg-slate-50 dark:bg-zinc-950 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl">
-                   <img src="myImage" alt="Harish Solanki" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" onError={(e) => { e.target.src = profilePic; }} />
-                   <div className="absolute bottom-5 left-5 right-5 p-4 sm:p-5 bg-white/90 dark:bg-black/90 backdrop-blur-xl rounded-[1.5rem] border border-white/20 transform shadow-xl">
-                      <div className="flex items-center justify-between">
-                         <div className="space-y-0.5 text-left">
-                            <p className="text-[9px] font-black uppercase tracking-[0.3em] text-blue-600 leading-none">Status</p>
-                            <p className="text-sm font-bold uppercase tracking-tighter leading-tight">Dwarka, Gujarat</p>
-                         </div>
-                         <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg shrink-0">
-                            <CheckCircle2 size={16} />
-                         </div>
-                      </div>
-                   </div>
-                </div>
-              </div>
-            </div>
+          <div className="flex-1 flex justify-center md:justify-end order-1 md:order-2">
+  <div className="relative group w-full max-w-[320px] lg:max-w-[400px]">
+    <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-cyan-500 rounded-[3rem] blur-2xl opacity-10 group-hover:opacity-30 transition duration-1000"></div>
+
+    <div className="relative aspect-[4/5] bg-slate-50 dark:bg-zinc-950 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl">
+
+      <img 
+        src={myImage}   // ✅ IMPORTANT FIX
+        alt="Harish Solanki" 
+        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+        onError={(e) => { e.target.src = profilePic; }} 
+      />
+
+      <div className="absolute bottom-5 left-5 right-5 p-4 sm:p-5 bg-white/90 dark:bg-black/90 backdrop-blur-xl rounded-[1.5rem] border border-white/20 transform shadow-xl">
+        <div className="flex items-center justify-between">
+          <div className="space-y-0.5 text-left">
+            <p className="text-[9px] font-black uppercase tracking-[0.3em] text-blue-600 leading-none">Status</p>
+            <p className="text-sm font-bold uppercase tracking-tighter leading-tight">Dwarka, Gujarat</p>
+          </div>
+          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg shrink-0">
+            <CheckCircle2 size={16} />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
           </div>
         </section>
 
